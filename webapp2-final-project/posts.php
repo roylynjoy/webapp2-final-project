@@ -78,9 +78,7 @@
                     $statement = $pdo->prepare($query);
                     $statement->execute([':id' => $user_id]);
 
-                    /*
-                     * First approach using fetchAll and foreach loop
-                     */
+                    
                     $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 
                     foreach ($rows as $row) {
@@ -88,13 +86,6 @@
                         echo '<li><a href="post.php?id=' . $row['id'] . '">' . $row['title'] . '</li>';
                     }
 
-                    /*
-                     * Second approach using fetch and while loop
-                     */
-                    // while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-                    // echo '<li data-id="' . $row['id'] . '">' . $row['title'] . '</li>';
-                    // echo '<li><a href="post.php?id=' . $row['id'] . '">' . $row['title'] . '</li>';
-                    // }
                 }
             } catch (PDOException $e) {
                 echo $e->getMessage();
