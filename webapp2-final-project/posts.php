@@ -60,10 +60,10 @@
 
             require 'config.php';
 
-            // if (!isset($_SESSION['user_id'])) {
-            //     header("Location: index.php");
-            //     exit;
-            // }
+             if (!isset($_SESSION['user_id'])) {
+                 header("Location: index.php");
+                 exit;
+            }
 
             $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
             $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
